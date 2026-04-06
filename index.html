@@ -227,6 +227,65 @@
     .install-text span{font-size:11px;color:var(--text3);}
     .install-yes{background:var(--accent);color:#fff;padding:6px 13px;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;}
     .install-no{color:var(--text3);font-size:12px;padding:6px;cursor:pointer;}
+
+    /* ── Font size scaling ── */
+    html[data-font="l"]{--sz:1.2;}
+    html[data-font="s"]{--sz:0.9;}
+    html[data-font="l"] body,html[data-font="s"] body{font-size:calc(14px * var(--sz));}
+    html[data-font="l"] .card-title,html[data-font="s"] .card-title{font-size:calc(13.5px * var(--sz));}
+    html[data-font="l"] .comment-body,html[data-font="s"] .comment-body{font-size:calc(13px * var(--sz));}
+    html[data-font="l"] .sheet-post-body,html[data-font="s"] .sheet-post-body{font-size:calc(13px * var(--sz));}
+    html[data-font="l"] #sheetTitle,html[data-font="s"] #sheetTitle{font-size:calc(14px * var(--sz));}
+    html[data-font="l"] .meta-txt,html[data-font="s"] .meta-txt{font-size:calc(10.5px * var(--sz));}
+    html[data-font="l"] .sub-tag,html[data-font="s"] .sub-tag{font-size:calc(10.5px * var(--sz));}
+    html[data-font="l"] .badge,html[data-font="s"] .badge{font-size:calc(9.5px * var(--sz));}
+    html[data-font="l"] .act-btn,html[data-font="s"] .act-btn{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .c-author,html[data-font="s"] .c-author{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .c-score,html[data-font="s"] .c-score{font-size:calc(10px * var(--sz));}
+    html[data-font="l"] .c-time,html[data-font="s"] .c-time{font-size:calc(10px * var(--sz));}
+    html[data-font="l"] .s-pill,html[data-font="s"] .s-pill{font-size:calc(12px * var(--sz));}
+    html[data-font="l"] .score-chip,html[data-font="s"] .score-chip{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .score-val,html[data-font="s"] .score-val{font-size:calc(12px * var(--sz));}
+    html[data-font="l"] #loadMoreBtn,html[data-font="s"] #loadMoreBtn{font-size:calc(13px * var(--sz));}
+    html[data-font="l"] .more-comments,html[data-font="s"] .more-comments{font-size:calc(12px * var(--sz));}
+    html[data-font="l"] .sheet-sub-tag,html[data-font="s"] .sheet-sub-tag{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .sheet-score,html[data-font="s"] .sheet-score{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .sheet-open-btn,html[data-font="s"] .sheet-open-btn{font-size:calc(11px * var(--sz));}
+    html[data-font="l"] .c-collapse-btn,html[data-font="s"] .c-collapse-btn{font-size:calc(10px * var(--sz));}
+
+    /* ── Accessible colors (fewer shades) ── */
+    html.accessible{--text2:#c8cad6;--text3:#9ba3b6;}
+    html.accessible .b-img,html.accessible .b-gif,html.accessible .b-vid,
+    html.accessible .b-self,html.accessible .b-link,html.accessible .b-gal,
+    html.accessible .b-nsfw{color:var(--text2)!important;background:rgba(150,155,170,.1)!important;border-color:rgba(150,155,170,.2)!important;}
+    html.accessible .sub-tag{color:var(--text2);background:rgba(150,155,170,.1);}
+    html.accessible .score-arrow{color:var(--text2);}
+    html.accessible .comment[data-depth="1"],html.accessible .comment[data-depth="2"],
+    html.accessible .comment[data-depth="3"],html.accessible .comment[data-depth="4"]{border-left-color:rgba(180,185,200,.35);}
+
+    /* ── Settings panel ── */
+    #settingsPanel{position:fixed;inset:0;z-index:650;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0;transition:opacity .2s;}
+    #settingsPanel.open{pointer-events:all;opacity:1;}
+    #settingsBackdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);}
+    #settingsBox{position:relative;background:var(--surf2);border:1px solid var(--border2);border-radius:18px 18px 0 0;width:100%;max-width:480px;padding:20px 20px 40px;display:flex;flex-direction:column;gap:18px;transform:translateY(100%);transition:transform .25s cubic-bezier(.32,.72,0,1);}
+    #settingsPanel.open #settingsBox{transform:translateY(0);}
+    .settings-title{font-size:16px;font-weight:700;color:var(--text);text-align:center;}
+    .settings-section{display:flex;flex-direction:column;gap:10px;}
+    .settings-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;}
+    .settings-font-btns{display:flex;gap:8px;}
+    .settings-font-btn{flex:1;padding:10px 6px;background:var(--surf3);border:1.5px solid var(--border);border-radius:10px;font-weight:700;color:var(--text2);cursor:pointer;transition:all .12s;text-align:center;}
+    .settings-font-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+    .settings-font-btn:nth-child(1){font-size:12px;}
+    .settings-font-btn:nth-child(2){font-size:15px;}
+    .settings-font-btn:nth-child(3){font-size:18px;}
+    .settings-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--surf3);border:1px solid var(--border);border-radius:12px;cursor:pointer;width:100%;text-align:left;}
+    .settings-row-label{font-size:13px;color:var(--text);font-weight:500;}
+    .settings-row-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+    .toggle-switch{width:44px;height:26px;background:var(--border2);border-radius:13px;position:relative;transition:background .2s;flex-shrink:0;}
+    .toggle-switch.on{background:var(--accent);}
+    .toggle-switch::after{content:'';position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.35);}
+    .toggle-switch.on::after{transform:translateX(18px);}
+    .settings-done-btn{padding:13px;background:var(--surf3);color:var(--text2);border-radius:12px;font-size:14px;font-weight:600;text-align:center;cursor:pointer;border:1px solid var(--border);}
   </style>
 </head>
 <body>
@@ -309,6 +368,32 @@
   </div>
 </div>
 
+<!-- Settings panel -->
+<div id="settingsPanel">
+  <div id="settingsBackdrop"></div>
+  <div id="settingsBox">
+    <div class="settings-title">⚙️ Settings</div>
+    <div class="settings-section">
+      <div class="settings-label">Text Size</div>
+      <div class="settings-font-btns">
+        <button class="settings-font-btn" id="fontSmall" title="Small">A</button>
+        <button class="settings-font-btn active" id="fontMedium" title="Medium">A</button>
+        <button class="settings-font-btn" id="fontLarge" title="Large">A</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <button class="settings-row" id="accessibleToggle">
+        <div>
+          <div class="settings-row-label">Accessible Colors</div>
+          <div class="settings-row-sub">Reduces color variety for easier reading</div>
+        </div>
+        <div class="toggle-switch" id="accessibleSwitch"></div>
+      </button>
+    </div>
+    <button class="settings-done-btn" id="settingsClose">Done</button>
+  </div>
+</div>
+
 <!-- Bottom nav -->
 <nav id="bottomNav">
   <button class="nav-btn active" id="navHome">
@@ -329,6 +414,10 @@
   <button class="nav-btn" id="navRefresh">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
     <span>Refresh</span>
+  </button>
+  <button class="nav-btn" id="navSettings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    <span>Settings</span>
   </button>
 </nav>
 
@@ -366,7 +455,8 @@ const feed=document.getElementById('feed'),
   navView=document.getElementById('navView'),
   navViewSvg=document.getElementById('navViewSvg'),
   navViewLabel=document.getElementById('navViewLabel'),
-  navRefresh=document.getElementById('navRefresh');
+  navRefresh=document.getElementById('navRefresh'),
+  navSettings=document.getElementById('navSettings');
 
 /* HELPERS */
 function timeAgo(u){const d=Math.floor(Date.now()/1000)-u;if(d<60)return d+'s';if(d<3600)return Math.floor(d/60)+'m';if(d<86400)return Math.floor(d/3600)+'h';return Math.floor(d/86400)+'d';}
@@ -769,7 +859,7 @@ commentScroll.addEventListener('touchend',e=>{
   const dy=e.changedTouches[0].clientY-_csy;
   if(dy>80&&_csScrollTop<=0)requestCloseComments();
 },{passive:true});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(confirmDialog.classList.contains('open')){hideConfirm();}else{closeComments();closeLightbox();closeSearch();}}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(settingsPanel.classList.contains('open')){closeSettings();}else if(confirmDialog.classList.contains('open')){hideConfirm();}else{closeComments();closeLightbox();closeSearch();}}});
 
 function renderComments(children,container,depth,op){
   children.forEach(child=>{
@@ -814,7 +904,7 @@ searchInput.addEventListener('keydown',e=>{
 document.getElementById('searchClose').addEventListener('click',closeSearch);
 
 /* BOTTOM NAV */
-function setActiveNav(btn){[navHome,navSearch,navView,navRefresh].forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function setActiveNav(btn){[navHome,navSearch,navView,navRefresh,navSettings].forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
 
 navHome.addEventListener('click',()=>{
   subreddit='all';subLabelText.textContent='all';
@@ -853,6 +943,43 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
 document.getElementById('installYes').addEventListener('click',async()=>{installBanner.style.display='none';if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}});
 document.getElementById('installNo').addEventListener('click',()=>{installBanner.style.display='none';});
 window.addEventListener('appinstalled',()=>{installBanner.style.display='none';});
+
+/* SETTINGS */
+const settingsPanel=document.getElementById('settingsPanel'),
+  settingsBackdrop=document.getElementById('settingsBackdrop'),
+  accessibleToggle=document.getElementById('accessibleToggle'),
+  accessibleSwitch=document.getElementById('accessibleSwitch'),
+  fontSmall=document.getElementById('fontSmall'),
+  fontMedium=document.getElementById('fontMedium'),
+  fontLarge=document.getElementById('fontLarge');
+
+let appSettings={font:'m',accessible:false};
+try{const s=JSON.parse(localStorage.getItem('rl-settings'));if(s)appSettings={...appSettings,...s};}catch(e){}
+
+function applySettings(){
+  const h=document.documentElement;
+  if(appSettings.font==='s')h.dataset.font='s';
+  else if(appSettings.font==='l')h.dataset.font='l';
+  else delete h.dataset.font;
+  h.classList.toggle('accessible',!!appSettings.accessible);
+  [fontSmall,fontMedium,fontLarge].forEach(b=>b.classList.remove('active'));
+  if(appSettings.font==='s')fontSmall.classList.add('active');
+  else if(appSettings.font==='l')fontLarge.classList.add('active');
+  else fontMedium.classList.add('active');
+  accessibleSwitch.classList.toggle('on',!!appSettings.accessible);
+}
+function saveSettings(){try{localStorage.setItem('rl-settings',JSON.stringify(appSettings));}catch(e){}}
+function openSettings(){settingsPanel.classList.add('open');}
+function closeSettings(){settingsPanel.classList.remove('open');}
+
+navSettings.addEventListener('click',openSettings);
+settingsBackdrop.addEventListener('click',closeSettings);
+document.getElementById('settingsClose').addEventListener('click',closeSettings);
+fontSmall.addEventListener('click',()=>{appSettings.font='s';saveSettings();applySettings();});
+fontMedium.addEventListener('click',()=>{appSettings.font='m';saveSettings();applySettings();});
+fontLarge.addEventListener('click',()=>{appSettings.font='l';saveSettings();applySettings();});
+accessibleToggle.addEventListener('click',()=>{appSettings.accessible=!appSettings.accessible;saveSettings();applySettings();});
+applySettings();
 
 loadFeed();
 </script>
