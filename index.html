@@ -229,6 +229,7 @@
     .install-no{color:var(--text3);font-size:12px;padding:6px;cursor:pointer;}
 
     /* ── Font size scaling ── */
+    html{--sz:1;}
     html[data-font="l"]{--sz:1.2;}
     html[data-font="s"]{--sz:0.9;}
     html[data-font="l"] body,html[data-font="s"] body{font-size:calc(14px * var(--sz));}
@@ -376,13 +377,13 @@
     <div class="settings-section">
       <div class="settings-label">Text Size</div>
       <div class="settings-font-btns">
-        <button class="settings-font-btn" id="fontSmall" title="Small">A</button>
-        <button class="settings-font-btn active" id="fontMedium" title="Medium">A</button>
-        <button class="settings-font-btn" id="fontLarge" title="Large">A</button>
+        <button class="settings-font-btn" id="fontSmall" title="Small" aria-label="Small text size">A</button>
+        <button class="settings-font-btn active" id="fontMedium" title="Medium" aria-label="Medium text size">A</button>
+        <button class="settings-font-btn" id="fontLarge" title="Large" aria-label="Large text size">A</button>
       </div>
     </div>
     <div class="settings-section">
-      <button class="settings-row" id="accessibleToggle">
+      <button class="settings-row" id="accessibleToggle" aria-pressed="false">
         <div>
           <div class="settings-row-label">Accessible Colors</div>
           <div class="settings-row-sub">Reduces color variety for easier reading</div>
@@ -967,6 +968,7 @@ function applySettings(){
   else if(appSettings.font==='l')fontLarge.classList.add('active');
   else fontMedium.classList.add('active');
   accessibleSwitch.classList.toggle('on',!!appSettings.accessible);
+  accessibleToggle.setAttribute('aria-pressed', String(!!appSettings.accessible));
 }
 function saveSettings(){try{localStorage.setItem('rl-settings',JSON.stringify(appSettings));}catch(e){}}
 function openSettings(){settingsPanel.classList.add('open');}
